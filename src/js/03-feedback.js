@@ -23,10 +23,31 @@ function onFormInputChange(event) {
   localStorage.setItem(storageKey, JSON.stringify(formData));
 }
 
+// function localeSaveDataForm() {
+//   let saveData = JSON.parse(localStorage.getItem(storageKey));
+//   if (saveData) {
+//     emailEl.value = saveData.email;
+//     textAreaEl.value = saveData.message;
+//   }
+// }
+
 function localeSaveDataForm() {
-  let saveData = JSON.parse(localStorage.getItem(storageKey));
-  if (saveData) {
-    emailEl.value = saveData.email;
-    textAreaEl.value = saveData.message;
+  const formDataValue = localStorage.getItem('feedbackFormState');
+  const savedFormDataValue = JSON.parse(formDataValue);
+  if (formDataValue) {
+    if (savedFormDataValue.email) {
+      emailEl.value = savedFormDataValue.email;
+    } else {
+      emailEl.value = '';
+    }
+
+    if (savedFormDataValue.message) {
+      textAreaEl.value = savedFormDataValue.message;
+    } else {
+      textAreaEl.value = '';
+    }
+
+    formData.email = savedFormDataValue.email;
+    formData.message = savedFormDataValue.message;
   }
 }
