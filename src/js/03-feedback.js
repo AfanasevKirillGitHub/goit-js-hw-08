@@ -32,7 +32,7 @@ function onFormInputChange(event) {
 // }
 
 function localeSaveDataForm() {
-  const formDataValue = localStorage.getItem('feedbackFormState');
+  const formDataValue = localStorage.getItem(storageKey);
   const savedFormDataValue = JSON.parse(formDataValue);
   if (formDataValue) {
     if (savedFormDataValue.email) {
