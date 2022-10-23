@@ -23,17 +23,10 @@ function onFormInputChange(event) {
   localStorage.setItem(storageKey, JSON.stringify(formData));
 }
 
-// function localeSaveDataForm() {
-//   let saveData = JSON.parse(localStorage.getItem(storageKey));
-//   if (saveData) {
-//     emailEl.value = saveData.email;
-//     textAreaEl.value = saveData.message;
-//   }
-// }
-
 function localeSaveDataForm() {
   const formDataValue = localStorage.getItem(storageKey);
   const savedFormDataValue = JSON.parse(formDataValue);
+
   if (formDataValue) {
     if (savedFormDataValue.email) {
       emailEl.value = savedFormDataValue.email;
